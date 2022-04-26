@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10.条件渲染指令</title>
+    <script src="./lib/vue.min.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <div v-if="a==1">QAQ</div>
+        <div v-else-if="a==2">QwQ</div>
+        <div v-else-if="a==3">TAT</div>
+        <div v-else=>TWT</div>
+        <button @click="add">改变表情</button>
+    </div>
+</body>
+<script>
+    const vm = new Vue({
+        el: '#app',
+        data: {
+            a: 1
+        },
+        methods: {
+            add() {
+                if(this.a==4)
+                    this.a = 1
+                else
+                    this.a++
+            }
+        }
+    })
+</script>
+
+</html>

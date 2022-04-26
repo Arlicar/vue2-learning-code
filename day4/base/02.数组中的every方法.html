@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02.数组中的every方法</title>
+</head>
+<body>
+    <script>
+        const arr = [
+            {id:1 , name:'草莓1' , status:true },
+            {id:2 , name:'草莓2' , status:true },
+            {id:3 , name:'草莓3' , status:true },
+            {id:4 , name:'草莓4' , status:true },
+        ]
+
+        //判断数组中水果是否都被选中
+        const result = arr.every(item=>item.status === true)
+        console.log(result);
+    </script>
+</body>
+</html>

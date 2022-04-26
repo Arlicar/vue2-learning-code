@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>07.按键修饰符</title>
+    <script src="./lib/vue.min.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" v-bind:placeholder = "tips" @keyup.esc = "clearInput($event)">
+        <hr>
+        <div>{{tips}}反转的结果是:{{tips.split('').reverse().join('')}}</div>
+        <div>在input输入框里输入内容，按esc可清空</div>
+    </div>
+</body>
+<script>
+    const vm = new Vue({
+        el: '#app',
+        data: {
+            tips:'请输入用户名'
+        },
+        methods:{
+            clearInput(e){
+                e.target.value = ''
+            }
+        }
+    })
+</script>
+
+</html>

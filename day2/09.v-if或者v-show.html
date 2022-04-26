@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>09.v-if或v-show</title>
+    <script src="./lib/vue.min.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <div v-if="flag">被if控制</div>
+        <div v-show="flag">被show控制</div>
+        <button @click = "change">改变</button>
+    </div>
+</body>
+<script>
+    const vm = new Vue({
+        el: '#app',
+        data: {
+            flag : true
+        },
+        methods:{
+            change(){
+                console.log(this);
+                this.flag = !this.flag
+            }
+        }
+    })
+</script>
+
+</html>

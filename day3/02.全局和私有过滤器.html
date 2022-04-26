@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02.全局和私有过滤器</title>
+    <script src="./lib/vue.min.js"></script>
+</head>
+
+<body>
+    <div id="app1">
+        <input type="text" placeholder="输入后首字母大写" v-model="message">
+        <p>{{message | capi}}</p>
+        <p>另外一个使用的是全局</p>
+    </div>
+    <div id="app2">
+        <input type="text" placeholder="输入后首字母大写" v-model="message">
+        <p>{{message | capi}}</p>
+    </div>
+    <script>
+        Vue.filter('capi', function (val) {
+            const first = val.charAt(0).toUpperCase()
+            const other = val.slice(1)
+            return first + other + '-------'
+        })
+
+        const vm1 = new Vue({
+            el: '#app1',
+            data: {
+                message: 'hello'
+            },
+            filters: {
+                capi(val) {
+                    // ! 必须要return返回值
+                    const first = val.charAt(0).toUpperCase()
+                    const other = val.slice(1)
+                    return first + other
+                }
+            }
+        })
+
+        const vm2 = new Vue({
+            el: '#app2',
+            data: {
+                message: 'hello'
+            }
+        })
+    </script>
+</body>
+
+</html>

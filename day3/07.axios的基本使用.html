@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>07.axios的基本使用</title>
+    <script src="./lib/axios.min.js"></script>
+</head>
+<body>
+    
+
+
+
+    <script>
+        //1.调用axios方法得到的返回值是promise对象
+        const result = axios({
+            method: 'GET',
+            url: 'http://www.liulongbin.top:3006/api/getbooks',
+            params:{
+                id:1
+            }
+        }).then(function(books){
+            console.log(books.data);
+        })
+    </script>
+</body>
+</html>
